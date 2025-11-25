@@ -1,0 +1,593 @@
+================================================================================
+              HUONG DAN CAI DAT HE THONG QUAN LY SINH VIEN
+================================================================================
+
+MUC LUC
+-------
+1. YEU CAU HE THONG
+2. CAI DAT SQL SERVER
+3. TAO CO SO DU LIEU
+4. CAU HINH KET NOI
+5. BIEN DICH VA CHAY CHUONG TRINH
+6. THONG TIN TAI KHOAN TEST
+7. DU LIEU MAU TRONG HE THONG
+8. KHAC PHUC SU CO THUONG GAP
+
+================================================================================
+                         1. YEU CAU HE THONG
+================================================================================
+
+YEU CAU PHAN CUNG
+-----------------
+- Bo xu ly: Intel Core i3 hoac tuong duong
+- RAM: 4GB tro len (khuyen cao 8GB)
+- O cung: 10GB dung luong trong
+- Man hinh: Do phan giai 1366x768 tro len
+
+YEU CAU PHAN MEM
+----------------
+1. He dieu hanh
+   - Windows 7 tro len
+   - Khuyen dung: Windows 10 hoac Windows 11
+
+2. Co so du lieu
+   - Microsoft SQL Server 2019 hoac cao hon
+   - SQL Server Express (mien phi) la du dung
+   - SQL Server Management Studio (SSMS) phien ban moi nhat
+
+3. Moi truong phat trien
+   - Microsoft .NET Framework 4.7.2 hoac cao hon
+   - Visual Studio 2019 hoac cao hon (Community, Professional hoac Enterprise)
+   - Visual Studio 2022 (khuyen dung)
+
+4. Thu vien va dependencies
+   Cac thu vien sau se tu dong duoc tai ve khi build project:
+   - EntityFramework 6.4.4
+   - MaterialDesignThemes 4.2.1
+   - MaterialDesignColors 2.0.3
+   - ClosedXML 0.95.4
+   - ExcelDataReader 3.6.0
+   - ExcelDataReader.DataSet 3.6.0
+   - Newtonsoft.Json 13.0.1
+   - DocumentFormat.OpenXml 2.7.2
+
+================================================================================
+                         2. CAI DAT SQL SERVER
+================================================================================
+
+BUOC 1: TAI SQL SERVER
+-----------------------
+1. Truy cap trang web:
+   https://www.microsoft.com/sql-server/sql-server-downloads
+
+2. Chon phien ban SQL Server Express (mien phi)
+
+3. Tai file cai dat ve may tinh
+
+BUOC 2: CAI DAT SQL SERVER
+---------------------------
+1. Chay file cai dat vua tai ve
+
+2. Chon loai cai dat:
+   - Chon "Basic" (Cai dat co ban) hoac "Custom" (Tuy chinh)
+
+3. Chap nhan thoa thuan su dung
+
+4. Chon thu muc cai dat
+   - De mac dinh hoac chon thu muc khac
+
+5. Trong qua trinh cai dat:
+   - CHU Y: Ghi nho ten Instance Name
+   - Mac dinh la: SQLEXPRESS
+   - Ten day du: .\SQLEXPRESS hoac localhost\SQLEXPRESS
+
+6. Che do xac thuc:
+   - Chon "Windows Authentication" (khuyen dung)
+   - Hoac chon "Mixed Mode" va dat mat khau cho tai khoan sa
+
+7. Hoan tat cai dat
+   - Doi qua trinh cai dat hoan thanh
+   - Nhan "Close" khi xong
+
+BUOC 3: CAI DAT SQL SERVER MANAGEMENT STUDIO (SSMS)
+----------------------------------------------------
+1. Tai SSMS tu trang web:
+   https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms
+
+2. Chay file cai dat SSMS
+
+3. Lam theo huong dan de hoan tat cai dat
+
+4. Khoi dong SSMS va kiem tra ket noi:
+   - Mo SSMS
+   - Server name: .\SQLEXPRESS
+   - Authentication: Windows Authentication
+   - Nhan "Connect"
+
+================================================================================
+                        3. TAO CO SO DU LIEU
+================================================================================
+
+BUOC 1: MO SQL SERVER MANAGEMENT STUDIO
+----------------------------------------
+1. Khoi dong SQL Server Management Studio (SSMS)
+
+2. Ket noi voi SQL Server:
+   - Server type: Database Engine
+   - Server name: .\SQLEXPRESS
+     (Hoac ten instance ban da cai dat)
+   - Authentication: Windows Authentication
+   - Nhan "Connect"
+
+BUOC 2: MO FILE SCRIPT SQL
+---------------------------
+1. Trong SSMS, vao menu "File"
+
+2. Chon "Open" > "File..." (hoac nhan Ctrl+O)
+
+3. Duyet den thu muc do an:
+   ChuongTrinh\Database\database.sql
+
+4. Chon file "database.sql" va nhan "Open"
+
+BUOC 3: CHAY SCRIPT TAO DATABASE
+---------------------------------
+1. Sau khi mo file SQL, ban se thay noi dung script
+
+2. Chay toan bo script:
+   - Nhan phim F5
+   - Hoac nhan nut "Execute" tren thanh cong cu
+   - Hoac vao menu "Query" > "Execute"
+
+3. Doi qua trinh thuc thi hoan tat
+   - Qua trinh nay co the mat vai giay
+   - Script se tu dong:
+     + Xoa database cu neu ton tai
+     + Tao database moi ten "StudentManagement"
+     + Tao tat ca cac bang (Users, Student, Teacher, Subject, ...)
+     + Tao cac rang buoc (Foreign Keys)
+     + Tao trigger tu dong dem so luong sinh vien
+     + Chen du lieu mau day du vao cac bang
+
+4. Kiem tra ket qua:
+   - Xem tab "Messages" o duoi cung
+   - Nen thay thong bao "HOAN THANH TAO DATABASE VA CHEN DU LIEU MAU"
+   - Nen thay danh sach cac tai khoan test
+
+5. Xac nhan database da duoc tao:
+   - Trong "Object Explorer" ben trai
+   - Mo node "Databases"
+   - Nen thay database "StudentManagement"
+   - Mo node nay de xem cac bang (Tables)
+
+BUOC 4: KIEM TRA DU LIEU
+-------------------------
+1. Kiem tra cac bang da duoc tao:
+   - Mo "StudentManagement" > "Tables"
+   - Nen thay khoang 30 bang
+
+2. Kiem tra du lieu trong bang:
+   - Nhan phai chuot vao bang "Users"
+   - Chon "Select Top 1000 Rows"
+   - Nen thay danh sach nguoi dung da duoc them
+
+================================================================================
+                        4. CAU HINH KET NOI
+================================================================================
+
+BUOC 1: TIM FILE CAU HINH
+--------------------------
+1. Mo thu muc do an
+
+2. Di chuyen den:
+   ChuongTrinh\SourceCode\StudentManagement\StudentManagement\
+
+3. Tim file "App.config"
+
+BUOC 2: CHINH SUA CONNECTION STRING (NEU CAN)
+----------------------------------------------
+1. Mo file "App.config" bang Notepad hoac text editor
+
+2. Tim phan <connectionStrings>
+
+3. Kiem tra dong connectionString:
+   data source=.\SQLEXPRESS;initial catalog=StudentManagement;...
+
+4. Neu SQL Server instance cua ban KHAC voi .\SQLEXPRESS:
+   
+   Vi du: Neu ban dung instance ten "MSSQLSERVER":
+   - Thay ".\SQLEXPRESS" thanh ".\MSSQLSERVER"
+   
+   Vi du: Neu ban dung "localhost":
+   - Thay ".\SQLEXPRESS" thanh "localhost"
+
+5. Luu file sau khi chinh sua (Ctrl+S)
+
+6. Dong file
+
+LUU Y:
+- Neu ban cai dat SQL Server voi cau hinh mac dinh, khong can sua gi
+- Chi can sua khi ban su dung instance name khac
+- Dam bao giu nguyen cac tham so khac trong connection string
+
+================================================================================
+                   5. BIEN DICH VA CHAY CHUONG TRINH
+================================================================================
+
+CACH 1: SU DUNG VISUAL STUDIO (KHUYEN DUNG)
+--------------------------------------------
+
+BUOC 1: MO PROJECT
+1. Khoi dong Visual Studio
+
+2. Chon "Open a project or solution"
+
+3. Duyet den thu muc:
+   ChuongTrinh\SourceCode\StudentManagement\
+
+4. Chon file "StudentManagement.sln"
+
+5. Nhan "Open"
+
+BUOC 2: RESTORE NUGET PACKAGES
+1. Visual Studio se tu dong phat hien va hoi restore packages
+
+2. Nhan "Restore" khi duoc nhac nho
+
+3. Hoac tu restore:
+   - Nhan phai chuot vao Solution trong Solution Explorer
+   - Chon "Restore NuGet Packages"
+
+4. Doi qua trinh tai packages hoan tat
+   - Xem tien trinh trong tab "Output"
+   - Doi cho den khi xong
+
+BUOC 3: BUILD SOLUTION
+1. Vao menu "Build" > "Build Solution"
+   Hoac nhan phim tat F6
+
+2. Doi qua trinh build hoan thanh
+   - Xem tien trinh trong tab "Output"
+   - Nen thay "Build succeeded" (Build thanh cong)
+
+3. Neu co loi:
+   - Doc thong bao loi trong tab "Error List"
+   - Dam bao da restore NuGet packages
+   - Dam bao da cai dat .NET Framework 4.7.2
+
+BUOC 4: CHAY CHUONG TRINH
+1. Nhan phim F5 (Start Debugging)
+   Hoac nhan nut "Start" (mui ten xanh) tren thanh cong cu
+
+2. Chuong trinh se khoi dong
+
+3. Man hinh dang nhap se xuat hien
+
+4. Dang nhap bang tai khoan test (xem muc 6 ben duoi)
+
+CACH 2: CHAY TU FILE EXE (SAU KHI DA BUILD)
+--------------------------------------------
+1. Sau khi build thanh cong, di den thu muc:
+   ChuongTrinh\SourceCode\StudentManagement\StudentManagement\bin\Debug\
+
+2. Tim file "StudentManagement.exe"
+
+3. Double-click vao file de chay chuong trinh
+
+4. Man hinh dang nhap se xuat hien
+
+LUU Y VE FILE EXE:
+- File exe can cac file dll trong cung thu muc
+- Khong duoc di chuyen rieng file exe ra ngoai
+- Neu muon sao chep, phai sao chep ca thu muc Debug
+
+================================================================================
+                      6. THONG TIN TAI KHOAN TEST
+================================================================================
+
+He thong da duoc tao san cac tai khoan de test chuc nang:
+
+TAI KHOAN QUAN TRI VIEN (ADMIN)
+--------------------------------
+Username: admin
+Password: admin
+Quyen han: Quan ly toan bo he thong
+
+TAI KHOAN GIAO VIEN (TEACHER)
+------------------------------
+Username: teacher01
+Password: admin
+Ho ten: Nguyen Van An
+Khoa: Cong nghe Phan mem
+
+Username: teacher02
+Password: admin
+Ho ten: Tran Thi Binh
+Khoa: Cong nghe Phan mem
+
+Username: teacher03
+Password: admin
+Ho ten: Le Van Cuong
+Khoa: He thong Thong tin
+
+Username: teacher04
+Password: admin
+Ho ten: Pham Thi Dung
+Khoa: He thong Thong tin
+
+Username: teacher05
+Password: admin
+Ho ten: Hoang Van Em
+Khoa: Khoa hoc May tinh
+
+Username: teacher06
+Password: admin
+Ho ten: Do Thi Giang
+Khoa: Khoa hoc May tinh
+
+TAI KHOAN SINH VIEN (STUDENT)
+------------------------------
+Username: 3121411078
+Password: admin
+Ho ten: Trinh Viet Hoang
+Khoa: Cong nghe Phan mem
+
+Username: 3121411222
+Password: admin
+Ho ten: Yen Bui Thai Tuan
+Khoa: Cong nghe Phan mem
+
+Username: 3121411150
+Password: admin
+Ho ten: Nguyen Thi Thao Nguyen
+Khoa: Cong nghe Phan mem
+
+CAC TAI KHOAN SINH VIEN KHAC:
+Username: 3121410001 den 3121410012
+Password: admin (tat ca deu dung mat khau nay)
+
+LUU Y:
+- Tat ca mat khau deu la "admin" (khong dau, viet thuong)
+- Username phan biet chu hoa chu thuong
+- Co the dang nhap vao cac tai khoan de test cac quyen han khac nhau
+
+================================================================================
+                     7. DU LIEU MAU TRONG HE THONG
+================================================================================
+
+Database da duoc chen san du lieu mau day du de test, bao gom:
+
+THONG TIN CO BAN
+-----------------
+1. Khoa dao tao (5 khoa):
+   - Khoa Cong nghe Phan mem
+   - Khoa He thong Thong tin
+   - Khoa Khoa hoc May tinh
+   - Khoa Mang may tinh va Truyen thong
+   - Khoa Ky thuat May tinh
+
+2. Hinh thuc dao tao (4 loai):
+   - Dai hoc chinh quy
+   - Dai hoc chat luong cao
+   - Lien thong
+   - Van bang 2
+
+3. Hoc ky (6 hoc ky):
+   - Hoc ky 1 nam hoc 2021-2022
+   - Hoc ky 2 nam hoc 2021-2022
+   - Hoc ky 1 nam hoc 2022-2023
+   - Hoc ky 2 nam hoc 2022-2023
+   - Hoc ky 1 nam hoc 2023-2024
+   - Hoc ky 2 nam hoc 2023-2024
+
+4. Mon hoc (12 mon):
+   - IT001: Nhap mon lap trinh (4 tin chi)
+   - IT002: Lap trinh huong doi tuong (4 tin chi)
+   - IT003: Cau truc du lieu va Giai thuat (4 tin chi)
+   - IT004: Co so du lieu (4 tin chi)
+   - IT005: Mang may tinh (4 tin chi)
+   - IT006: Kien truc may tinh (4 tin chi)
+   - IT007: He dieu hanh (4 tin chi)
+   - IT008: Cong nghe phan mem (4 tin chi)
+   - IT009: Tri tue nhan tao (4 tin chi)
+   - IT010: Phat trien ung dung Web (4 tin chi)
+   - IT011: Phat trien ung dung di dong (4 tin chi)
+   - IT012: An toan va bao mat thong tin (4 tin chi)
+
+TAI KHOAN NGUOI DUNG
+---------------------
+- 1 tai khoan Admin
+- 6 tai khoan Giao vien (da duoc phan cong khoa)
+- 15 tai khoan Sinh vien (da duoc phan lop va khoa)
+
+LOP HOC VA DANG KY MON HOC
+---------------------------
+- 5 lop mon hoc da duoc mo (IT001.N01, IT002.N01, IT003.N01, IT004.N01, IT008.N01)
+- Moi lop co giang vien phu trach
+- Sinh vien da dang ky cac mon hoc
+- Da co du lieu dang ky mon hoc trong bang CourseRegister
+
+DIEM SO
+-------
+- Cac thanh phan diem cho tung mon:
+  + Diem chuyen can (10%)
+  + Diem giua ky (30%)
+  + Diem cuoi ky (60%)
+- Diem chi tiet cua mot so sinh vien da duoc nhap
+- Diem ren luyen cua sinh vien (95, 90, 98 diem)
+
+HOAT DONG KHAC
+--------------
+- Lich thi giua ky va cuoi ky cho cac mon hoc
+- Cac thong bao tu giao vien (3 thong bao mau)
+- Binh luan cua sinh vien tren thong bao
+- Lich nghi bu lop hoc (AbsentCalendar)
+
+================================================================================
+                      8. KHAC PHUC SU CO THUONG GAP
+================================================================================
+
+SU CO 1: LOI KET NOI DATABASE
+------------------------------
+Trieu chung:
+- Khong the ket noi voi SQL Server
+- Loi "A network-related or instance-specific error"
+- Loi "Login failed for user"
+
+Cach khac phuc:
+1. Kiem tra SQL Server da chay:
+   - Mo "SQL Server Configuration Manager"
+   - Kiem tra "SQL Server (SQLEXPRESS)" dang chay (Running)
+   - Neu chua chay, nhan phai chuot va chon "Start"
+
+2. Kiem tra ten server:
+   - Mo file App.config
+   - Kiem tra "data source=.\SQLEXPRESS"
+   - Dam bao ten instance dung voi ten ban da cai dat
+
+3. Thu ket noi bang SSMS:
+   - Mo SQL Server Management Studio
+   - Thu ket noi voi .\SQLEXPRESS
+   - Neu SSMS ket noi duoc, chuong trinh cung ket noi duoc
+
+4. Kiem tra Windows Authentication:
+   - Dam bao dang su dung Windows Authentication
+   - Khong can username/password trong connection string
+
+SU CO 2: LOI BUILD PROJECT
+---------------------------
+Trieu chung:
+- Build failed
+- Loi "Could not find a part of the path"
+- Loi reference den thu vien
+
+Cach khac phuc:
+1. Kiem tra .NET Framework:
+   - Mo "Control Panel" > "Programs and Features"
+   - Kiem tra co cai dat ".NET Framework 4.7.2" hoac cao hon
+   - Neu chua co, tai va cai dat tu trang Microsoft
+
+2. Restore NuGet Packages:
+   - Nhan phai chuot vao Solution
+   - Chon "Restore NuGet Packages"
+   - Doi cho den khi hoan tat
+
+3. Clean va Rebuild:
+   - Vao "Build" > "Clean Solution"
+   - Sau do "Build" > "Rebuild Solution"
+
+4. Kiem tra ket noi Internet:
+   - Dam bao may tinh co ket noi Internet
+   - NuGet can Internet de tai packages
+
+SU CO 3: LOI DANG NHAP
+-----------------------
+Trieu chung:
+- Khong dang nhap duoc
+- Thong bao "Sai tai khoan hoac mat khau"
+
+Cach khac phuc:
+1. Kiem tra database da tao:
+   - Mo SSMS
+   - Kiem tra database "StudentManagement" co ton tai khong
+   - Kiem tra bang "Users" co du lieu khong
+
+2. Chay lai script SQL:
+   - Mo file database.sql trong SSMS
+   - Chay lai script (F5)
+   - Dam bao khong co loi
+
+3. Thu tai khoan mac dinh:
+   - Username: admin
+   - Password: admin
+   - Chu y: viet thuong, khong dau
+
+4. Kiem tra connection string:
+   - Mo file App.config
+   - Dam bao connection string dung
+
+SU CO 4: LOI MISSING DEPENDENCIES
+----------------------------------
+Trieu chung:
+- Loi "Could not load file or assembly"
+- Loi "The type or namespace name could not be found"
+
+Cach khac phuc:
+1. Mo NuGet Package Manager:
+   - Vao "Tools" > "NuGet Package Manager"
+   - Chon "Manage NuGet Packages for Solution"
+
+2. Kiem tra cac packages:
+   - Vao tab "Installed"
+   - Kiem tra cac package da cai dat chua
+
+3. Restore packages:
+   - Vao tab "Consolidate"
+   - Nhan "Restore" neu co
+
+4. Cai dat lai package bi thieu:
+   - Vao tab "Browse"
+   - Tim va cai dat lai package bi thieu
+
+SU CO 5: LOI RUNTIME
+--------------------
+Trieu chung:
+- Chuong trinh chay nhung gap loi khi thuc hien chuc nang
+- Loi "Object reference not set to an instance"
+
+Cach khac phuc:
+1. Kiem tra du lieu:
+   - Dam bao database co du lieu
+   - Kiem tra cac bang lien quan co du lieu khong
+
+2. Xem log loi:
+   - Xem chi tiet loi trong Visual Studio
+   - Doc message de biet nguyen nhan
+
+3. Contact ho tro:
+   - Lien he email nhom de duoc ho tro
+
+SU CO 6: CHUONG TRINH CHAY CHAM
+--------------------------------
+Trieu chung:
+- Chuong trinh khoi dong cham
+- Cac thao tac xu ly cham
+
+Cach khac phuc:
+1. Kiem tra ket noi database:
+   - Dam bao SQL Server hoat dong tot
+   - Kiem tra connection khong bi timeout
+
+2. Restart SQL Server:
+   - Mo SQL Server Configuration Manager
+   - Restart service SQL Server
+
+3. Kiem tra cau hinh may tinh:
+   - Dam bao du RAM (toi thieu 4GB)
+   - Dong cac ung dung khong can thiet
+
+================================================================================
+                            LIEN HE HO TRO
+================================================================================
+
+Neu gap bat ky van de nao trong qua trinh cai dat hoac su dung he thong,
+vui long lien he:
+
+Email nhom:
+- 3121411078@student.uit.edu.vn (Trinh Viet Hoang)
+- 3121411222@student.uit.edu.vn (Yen Bui Thai Tuan)
+- 3121411150@student.uit.edu.vn (Nguyen Thi Thao Nguyen)
+
+Trong email, vui long cung cap:
+- Thong tin loi gap phai
+- Hinh anh man hinh (screenshot) neu co
+- Cac buoc da thuc hien
+
+================================================================================
+                              KET THUC
+================================================================================
+
+Chuc ban cai dat va su dung thanh cong he thong!
+
+Ghi chu: Tai lieu nay duoc viet bang tieng Viet khong dau de dam bao hien thi
+tot tren moi he thong.
