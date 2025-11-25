@@ -32,7 +32,7 @@ sqlcmd -S .\SQLEXPRESS -E -i "database.sql" -f 65001
 - Username: `admin`
 - Password: `admin`
 
-**Giáo viên:**
+**Giảng viên:**
 - Username: `teacher01` đến `teacher06`
 - Password: `admin`
 
